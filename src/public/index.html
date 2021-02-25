@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Emision a ver</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body style="background-color: #B4D1FC; color: #6A6A6F;">
+    <div class="p-5"><h1>Emision en directo</h1>
+    <button class="btn" id="btn">Emitir</button>
+    <button class="btn" onclick="reFresh()">Dejar de transmitir</button></div>
+    <video src="" id="video" class="d-flex p-5" autoplay="true"></video>
+    <canvas id="preview"></canvas>
+    <div class="status"></div>
+
+
+        <script>
+            var canvas = document.querySelector('#preview');
+            var context = canvas.getContext('2d');
+            var btn = document.querySelector('#btn');
+            canvas.style.display = 'none';
+            canvas.width = 500;
+            canvas.height = 300;
+
+            context.width = canvas.width;
+            context.height = canvas.height;
+
+            var video = document.querySelector('#video');
+
+            var socket = io();
+
+            //funcion de mensaje
+
+            function publicarMensaje(msg) {
+                document.querySelector('.status').innerText = msg;
+            }
+
+            //funcion cargar camara
+
+            function loadCamara(stream) {
+                video.srcObject = stream;
+                publicarMensaje('La camara esta funcionando');
+            }
+            function errorCamara() {
+                publicarMensaje('La camara ha fallado');
+            }
+
+            // funcion para ver el stream
+
+            function verVideo(video, context) {
+                context.drawImage(video, 0, 0, context.width, context.height);
+                socket.emit('stream', canvas.toDataURL('image/webp'));
+            }
+
+            // funcion para emitir al clickear el boton
+            btn.addEventListener('click', () => {
+                navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
+
+                //acceder a la camara del usuario y realizar la funcion correspondiente
+                if (navigator.getUserMedia) {
+                    navigator.getUserMedia({ video: true }, loadCamara, errorCamara);
+                }
+
+                //Refrescando el canvas
+
+                var intervalo = setInterval(() => {
+                    verVideo(video, context);
+                }, 30);
+
+            })
+
+            
+            function reFresh(){
+            location.reload(true)}
+            window.setInterval("reFresh()", 300000);
+
+        </script>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
