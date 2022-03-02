@@ -1,5 +1,4 @@
 #!/bin/bash
-sudo apt update && sudo apt upgrade
-sudo apt insall nodejs
-yum install -y httpd
+nvm intall --lts
+npm install
 
