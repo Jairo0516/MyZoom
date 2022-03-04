@@ -1,21 +1,17 @@
 version: 0.2
-os: linux
-files:
-  - source: /
-    destination: /home/ec2-user/myzoom
-hooks:
-  ApplicationStop:
-    - location: scripts/stop_hook
-      timeout: 10
-      runas: ec2-user
-  BeforeInstall:
-    - location: scripts/before_install_hook
-      timeout: 10
-      runas: ec2-user
-  ApplicationStart:
-    - location: scripts/start_hook
-      timeout: 10
-      runas: ec2-user
+phases:
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
+      - echo Running unit tests
+  post_build:
+    commands:
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
