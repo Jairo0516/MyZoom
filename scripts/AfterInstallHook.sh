@@ -2,4 +2,4 @@
 set -e
 cd /usr/share/nginx/myzoom
 npm install
-npm run build
+npm run dev
