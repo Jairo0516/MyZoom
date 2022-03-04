@@ -5,10 +5,12 @@ files:
     destination: /home/ec2-user/myzoom
     overwrite: true
 hooks:
+  ApplicationStop:
+    - location: scripts/StopHook.sh
+      timeout: 300
   BeforeInstall:
     - location: scripts/BeforeInstallHook.sh
       timeout: 300
-      runas: ec2-user
   AfterInstall:
     - location: scripts/StartHook.sh
       timeout: 300
