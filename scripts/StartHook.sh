@@ -14,6 +14,5 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 npm install
 
-cd /home/ec2-user/myzoom/src
 #start our node app in the background
 npm run dev
