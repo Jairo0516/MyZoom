@@ -1,5 +1,8 @@
 version: 0.2
 os: linux
+artifacts:
+  files:
+    - '**/*'
 files:
   - source: /
     destination: /home/ec2-user/myzoom
