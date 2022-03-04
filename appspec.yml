@@ -2,11 +2,12 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /usr/share/nginx/html
+    destination: /usr/share/nginx/myzoom
+    overwrite: true
 hooks:
-#  BeforeInstall:
-#    - location: scripts/start_serve
-#      timeout: 300
+  BeforeInstall:
+    - location: scripts/BeforeInstallHook.sh
+      timeout: 300
   AfterInstall:
-    - location: scripts/start_server
+    - location: scripts/AfterInstallHook.sh
       timeout: 300
