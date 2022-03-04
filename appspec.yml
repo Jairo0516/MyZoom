@@ -6,8 +6,3 @@ artifacts:
 files:
   - source: /
     destination: /home/ec2-user/myzoom
-hooks:
-  AplicationStart:
-    - location: scripts/StartHook.sh
-      timeout: 300
-      runas: ec2-user
