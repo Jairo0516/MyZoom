@@ -10,7 +10,7 @@ hooks:
   ApplicationStop:
     - location: scripts/StopHook.sh
       runas: ec2-user
-  AplicatonStart:
+  AplicationStart:
     - location: scripts/StartHook.sh
       timeout: 300
       runas: ec2-user
