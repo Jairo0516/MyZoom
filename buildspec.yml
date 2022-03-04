@@ -8,13 +8,13 @@ files:
     destination: /home/ec2-user/myzoom
 hooks:
   ApplicationStop:
-    - location: scripts/StopHook.sh
+    - location: /scripts/stop_hook.sh
       runas: ec2-user
   BeforeInstall:
-    - location: scripts/BeforeInstallHook.sh
+    - location: /scripts/before_install_hook.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/StartHook.sh
+    - location: /scripts/start_hook.sh
       timeout: 300
       runas: ec2-user
