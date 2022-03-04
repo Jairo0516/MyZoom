@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 os: linux
 artifacts:
   files:
@@ -6,3 +6,15 @@ artifacts:
 files:
   - source: /
     destination: /home/ec2-user/myzoom
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_hook.sh
+      runas: ec2-user
+  BeforeInstall:
+    - location: scripts/before_install_hook.sh
+      timeout: 300
+      runas: ec2-user
+  ApplicationStart:
+    - location: scripts/start_hook.sh
+      timeout: 300
+      runas: ec2-user
