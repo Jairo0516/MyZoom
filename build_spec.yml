@@ -3,7 +3,6 @@ phases:
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - nvm install node
       - npm install
       - npm install -g pm2
       - pm2 update
