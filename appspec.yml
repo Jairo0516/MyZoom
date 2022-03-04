@@ -1,11 +1,9 @@
 version: 0.0
 os: linux
-artifacts:
-  files:
-    - '**/*'
 files:
   - source: /
     destination: /home/ec2-user/myzoom
+    overwrite: true
 hooks:
   BeforeInstall:
     - location: scripts/BeforeInstallHook.sh

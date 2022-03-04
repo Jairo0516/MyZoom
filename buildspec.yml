@@ -1,8 +1,18 @@
-version: 0.3
+version: 0.2
 os: linux
-files:
-  - source: /
-    destination: /home/ec2-user/myzoom
+phases:
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
+      - echo Running unit tests
+  post_build:
+    commands:
+      - echo Build completed on `date`
 artifacts:
   files:
     - '**/*'
