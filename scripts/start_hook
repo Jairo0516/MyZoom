@@ -18,5 +18,6 @@ npm install
 npm install -g pm2
 
 cd /home/ec2-user/myzoom/src
+pm2 stop mi-zoom
 #start our node app in the background
 pm2 start index.js --name "mi-zoom"
