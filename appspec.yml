@@ -3,7 +3,6 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/myzoom
-    overwrite: true
 hooks:
   ApplicationStop:
     - location: scripts/StopHook.sh
