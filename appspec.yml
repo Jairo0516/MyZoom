@@ -1,13 +1,18 @@
-version: 0.0
+version: 0.2
 os: linux
 files:
   - source: /
-    destination: /usr/share/nginx/myzoom
+    destination: /home/ec2-user/myzoom
     overwrite: true
 hooks:
+  ApplicationStop:
+    - location: scripts/StopHook.sh
+      runas: ec2-user
   BeforeInstall:
     - location: scripts/BeforeInstallHook.sh
       timeout: 300
-  AfterInstall:
-    - location: scripts/AfterInstallHook.sh
+      runas: ec2-user
+  AplicatonStart:
+    - location: scripts/StartHook.sh
       timeout: 300
+      runas: ec2-user
