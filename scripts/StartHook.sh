@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #give permission for everything in the express-app directory
-chmod -R 777 /home/ec2-user/myzoom
+sudo chmod -R 777 /home/ec2-user/myzoom
 
 #navigate into our working directory where we have all our github files
 cd /home/ec2-user/myzoom
@@ -14,5 +14,6 @@ export NVM_DIR="$HOME/.nvm"
 #install node modules
 npm install
 
+cd /home/ec2-user/myzoom/src
 #start our node app in the background
-node src/app.js > app.out.log 2> app.err.log < /dev/null &
+npm run dev
