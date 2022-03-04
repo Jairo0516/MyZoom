@@ -1,5 +1,9 @@
 version: 0.2
 os: linux
+hooks:
+  ApplicationStop:
+    - location: scripts/StopHook.sh
+      timeout: 300
 phases:
   pre_build:
     commands:
