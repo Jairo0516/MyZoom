@@ -4,6 +4,7 @@ hooks:
   ApplicationStop:
     - location: scripts/StopHook.sh
       timeout: 300
+      runas: ec2-user
 phases:
   pre_build:
     commands:
