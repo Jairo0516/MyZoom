@@ -11,13 +11,13 @@ files:
 hooks:
   ApplicationStop:
     - location: scripts/stop_hook
-      timeout: 10
+      timeout: 300
       runas: ec2-user
   BeforeInstall:
     - location: scripts/before_install_hook
-      timeout: 10
+      timeout: 300
       runas: ec2-user
   ApplicationStart:
     - location: scripts/start_hook
-      timeout: 10
+      timeout: 300
       runas: ec2-user
