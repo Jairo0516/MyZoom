@@ -13,9 +13,8 @@ export NVM_DIR="$HOME/.nvm"
 
 #install node modules
 npm install
-
-
 npm install -g pm2
+npm install socket.io
 
 cd /home/ec2-user/myzoom/src
 pm2 stop mi-zoom
