@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #give permission for everything in the express-app directory
-sudo chmod -R 777 /home/ubuntu/myzoom
+sudo chmod -R 777 /home/ec2-user/myzoom
 
 #navigate into our working directory where we have all our github files
-cd /home/ubuntu/myzoom
+cd /home/ec2-user/myzoom
 
 #add npm and node to path
 export NVM_DIR="$HOME/.nvm"
@@ -17,7 +17,7 @@ npm install
 
 npm install -g pm2
 
-cd /home/ubuntu/myzoom/src
+cd /home/ec2-user/myzoom/src
 pm2 stop mi-zoom
 
 # restart pm2 and thus node app on reboot
