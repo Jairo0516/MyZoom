@@ -5,6 +5,7 @@ phases:
       - echo Installing source NPM dependencies...
       - npm install 
       - npm install -g pm2
+      - npm install socket.io
       - pm2 update
   build:
     commands:
