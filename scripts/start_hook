@@ -4,7 +4,7 @@
 sudo chmod -R 777 /home/ec2-user/myzoom
 
 
-#/opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner -Dsonar.organization=My_Zoom -Dsonar.projectKey=My_Zoom -Dsonar.sources=/home/ec2-user/myzoom/src -Dsonar.host.url=http://34.234.167.196:9000 -Dsonar.login=e55ecff6feb353ce0ba7e82f2499f58f82137017
+/opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner -Dsonar.organization=My_Zoom -Dsonar.projectKey=My_Zoom -Dsonar.sources=/home/ec2-user/myzoom/src -Dsonar.host.url=http://34.234.167.196:9000 -Dsonar.login=e55ecff6feb353ce0ba7e82f2499f58f82137017
 
 
 #navigate into our working directory where we have all our github files
