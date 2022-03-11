@@ -2,11 +2,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - sudo yum update
-      - sudo yum install -y jq
-      - sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - sudo unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
-      - sudo export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
+      - yum install -y jq
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:./sonar-scanner-3.3.0.1492-linux/bin/
   pre_build:
     commands:
       - sonar-scanner -Dsonar.organization=My_Zoom -Dsonar.projectKey=My_Zoom -Dsonar.sources=src -Dsonar.host.url=http://34.234.167.196:9000 -Dsonar.login=
