@@ -4,7 +4,7 @@ phases:
     commands:
       - yum install -y jq
       #- sudo amazon-linux-extras install java-openjdk11
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
       - unzip ./sonar-scanner-cli-4.7.0.2747-linux.zip
       - export PATH=$PATH:./sonar-scanner-cli-4.7.0.2747-linux.zip/bin/
   pre_build:
