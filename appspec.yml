@@ -9,6 +9,7 @@ files:
   - source: /
     destination: /home/ec2-user/myzoom
 hooks:
+
   ApplicationStop:
     - location: scripts/stop_hook
       timeout: 300
