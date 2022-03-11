@@ -10,7 +10,7 @@ phases:
     commands:
       - sonar-scanner -Dsonar.organization=My_Zoom -Dsonar.projectKey=My_Zoom -Dsonar.sources=src -Dsonar.host.url=http://34.234.167.196:9000 -Dsonar.login=e55ecff6feb353ce0ba7e82f2499f58f82137017
       - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$PROJECTKEY > analysis.json
+      - curl http://34.234.167.196:9000/api/qualitygates/project_status?projectKey=My_Zoom > analysis.json
       - cat analysis.json
       - echo Installing source dependencies SONAR...
   build:
