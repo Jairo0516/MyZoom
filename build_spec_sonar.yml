@@ -32,7 +32,6 @@ phases:
       #- sleep 5
       #- curl http://34.234.167.196:9000/api/qualitygates/project_status?projectKey=My_Zoom > analysis.json
       #- cat analysis.json
-      - echo Installing source dependencies SONAR...
   post_build:
     commands:
       - echo Build completed on `date`
