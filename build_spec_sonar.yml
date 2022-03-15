@@ -19,7 +19,7 @@ phases:
     commands:
       - #!/bin/bash
       - bash
-      - sh ./opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner-4.7.0.2747-linux/bin/
+      - ./opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner-4.7.0.2747-linux/bin/
       - sonar-scanner -Dsonar.organization=my_zoom -Dsonar.projectKey=my_zoom -Dsonar.sources=/home/ec2-user/myzoom/src -Dsonar.host.url=http://44.203.62.27:9000 -Dsonar.login=883f27f4446229b809f8b178b84ec25b518a4cb2
       - sleep 5
       - echo se durmio 5 seg
