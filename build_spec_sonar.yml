@@ -19,9 +19,12 @@ phases:
     commands:
       - sonar-scanner -Dsonar.organization=my_zoom -Dsonar.projectKey=my_zoom -Dsonar.sources=\src -Dsonar.host.url=http://44.203.62.27:9000 -Dsonar.login=883f27f4446229b809f8b178b84ec25b518a4cb2
       - sleep 5
-      - echo se durmio 5 seg
+      - echo consulta del projecto
       - curl http://44.203.62.27:9000/api/qualitygates/project_status?projectKey=my_zoom >analysis.json
+      - ls
       - cat analysis.json
+      - ls
+      - jq '.' analysis.json
       - echo Installing source dependencies SONAR...
       - if [ $(jq -r '.projectStatus.status' analysis.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
       #- echo Running unit tests
