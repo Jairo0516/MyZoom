@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - yum check-update
+      #- yum check-update
       - yum install -y jq
       #- wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
       #- unzip ./sonar-scanner-cli-4.7.0.2747-linux.zip
@@ -18,6 +18,7 @@ phases:
     commands:
   build:
     commands:
+      - jq --version
       - sonar-scanner -Dsonar.organization=my_zoom -Dsonar.projectKey=my_zoom -Dsonar.sources=\src -Dsonar.host.url=http://44.203.62.27:9000 -Dsonar.login=883f27f4446229b809f8b178b84ec25b518a4cb2
       - sleep 5
       - echo consulta del projecto
