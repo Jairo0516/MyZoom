@@ -25,7 +25,7 @@ phases:
       - curl GET -u admin:6150 http://44.203.62.27:9000/api/qualitygates/project_status?projectKey=my_zoom >analysis.json
       - cat analysis.json
       - echo $CODEBUILD_BUILD_SUCCEEDING
-      - if [[ $(jq -r '.projectStatus.status' analysis.json) = ERROR ]];then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
+      - if [[ $(jq -r '.projectStatus.status' analysis.json) = ERROR ]];then $CODEBUILD_BUILD_SUCCEEDING=0 ;fi;
       #- echo Running unit tests
       #- cd /opt/sonar-scanner-4.7.0.2747-linux/bin
       #- sonar-scanner -Dsonar.organization=My_Zoom -Dsonar.projectKey=My_Zoom -Dsonar.sources=/home/ec2-user/myzoom/src -Dsonar.host.url=http://34.234.167.196:9000 -Dsonar.login=e55ecff6feb353ce0ba7e82f2499f58f82137017
