@@ -22,4 +22,13 @@ io.on('connection', (socket) => {
 	});
 });
 
+
+while(1<5){
+
+
+	console.log("Hola")
+	return true;
+
+}
+
 module.exports = http;
